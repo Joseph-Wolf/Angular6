@@ -2,6 +2,8 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -10,8 +12,9 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
       declarations: [
-        AppComponent
-        HeroesComponent
+        AppComponent,
+        HeroesComponent,
+        HeroDetailComponent
       ]
     }).compileComponents();
   }));
