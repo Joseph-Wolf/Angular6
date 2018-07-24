@@ -56,16 +56,6 @@ describe('HeroesComponent', () => {
       expect(items.length).toEqual(component.heroes.length); //confirm the number of list items
     }));
 
-    it('should render hero-details only if selectedHero is valid', async(() => {
-      let elementSelector = '.hero-details';
-      expect(compiled.querySelector(elementSelector)).toBeFalsy(); //Make sure it does not exist
-
-      component.selectedHero = { id: 11, name: 'Mr. Nice' }; //Set the selectedHero
-      fixture.detectChanges(); //Trigger update
-
-      expect(compiled.querySelector(elementSelector)).toBeTruthy(); //Confirm that the element exists now
-    }));
-
     it('should apply selectedHero class on correct list item', async(() => {
       let classSelector = '.selected'; //Class selector to look for
       component.heroes = [

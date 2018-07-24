@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeroesComponent,
-        HeroDetailComponent
+        HeroDetailComponent,
+        MessagesComponent
       ]
     }).compileComponents();
   }));
@@ -27,11 +29,11 @@ describe('AppComponent', () => {
 
   it('should create the app', async(() => {
     let app = fixture.debugElement.componentInstance;
+    let app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('app');
     expect(app).toBeTruthy();
   }));
   it(`should have as title 'app'`, async(() => {
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
   }));
   describe('Render', () => {
     let compiled;
