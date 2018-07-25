@@ -44,7 +44,10 @@ describe('MessagesComponent', () => {
       expect(compiled.querySelector(selector)).toBeTruthy();
     }));
     it('should display messages', async(() => {
-
+      let listItemsSelector = '.message';
+      let items = compiled.querySelectorAll(listItemsSelector); //Get the items
+      expect(items).toBeTruthy();
+      expect(items.length).toEqual(component.messageService.messages.length);
     }));
   });
 });

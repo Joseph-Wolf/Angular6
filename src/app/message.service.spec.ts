@@ -21,11 +21,11 @@ describe('MessageService', () => {
   	service.add('test');
   	let finalLength = service.messages.length;
   	expect(finalLength).toEqual(initialLength + 1);
-  });
+  }));
 
   it('should clear messages', inject([MessageService], (service: MessageService) => {
   	service.add('test');
   	service.clear();
   	expect(service.messages.length).toEqual(0);
-  });
+  }));
 });
