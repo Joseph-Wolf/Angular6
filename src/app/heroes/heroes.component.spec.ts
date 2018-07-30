@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -13,7 +14,10 @@ describe('HeroesComponent', () => {
         HeroesComponent,
         HeroDetailComponent
       ],
-      imports: [ FormsModule ]
+      imports: [
+        FormsModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
@@ -55,32 +59,10 @@ describe('HeroesComponent', () => {
       expect(items).toBeTruthy(); //Confirm that something was found
       expect(items.length).toEqual(component.heroes.length); //confirm the number of list items
     }));
-
-    it('should apply selectedHero class on correct list item', async(() => {
-      let classSelector = '.selected'; //Class selector to look for
-      component.heroes = [
-        { id: 1, name: 'a' },
-        { id: 2, name: 'b' },
-        { id: 3, name: 'c' }
-      ]; //heroes
-      expect(compiled.querySelector(classSelector)).toBeFalsy(); //Make sure nothing has the expected class
-
-      component.selectedHero = component.heroes[0]; //Set the selectedHero
-      fixture.detectChanges(); //Trigger update
-      expect(compiled.querySelector(classSelector)).toBeTruthy(); //Make sure something has the expected class
-    }));
   });
 
   it('should have heroes', async(() => {
     expect(component.heroes).toBeTruthy();
     expect(component.heroes.length).toBeTruthy();
-  }));
-
-  it('should set selectedHero', async(() => {
-    expect(component.selectedHero).toBeFalsy();
-    let testHero = { id: 11, name: 'Mr. Nice' };
-    component.onSelect(testHero);
-    expect(component.selectedHero).toBeTruthy();
-    expect(component.selectedHero).toEqual(testHero);
   }));
 });

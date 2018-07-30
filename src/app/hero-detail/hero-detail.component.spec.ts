@@ -1,15 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail.component';
+import { RouterTestingModule } from '@angular/router/testing';    
+
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
-
+           
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroDetailComponent ],
-      imports: [ FormsModule ]
+      declarations: [
+        HeroDetailComponent 
+      ],
+      imports: [
+        FormsModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
